@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Guest index{% endblock %}
+
+{% block body %}
+    <h1>Guest index</h1>
+{% include 'tab.html.twig' %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Table_number</th>
+                <th>{% trans %}actions{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for guest in guests %}
+            <tr>
+                <td>{{ guest.id }}</td>
+                <td>{{ guest.name }}</td>
+                <td>{{ guest.description }}</td>
+                <td>{{ guest.tableNumber }}</td>
+                <td>
+                    <a href="{{ path('app_guest_show', {'id': guest.id}) }}">{% trans %}show{% endtrans %}</a>
+                    <a href="{{ path('app_guest_edit', {'id': guest.id}) }}">{% trans %}edit{% endtrans %}</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">{% trans %}no records found{% endtrans %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_guest_new') }}">{% trans %}Create new{% endtrans %}</a>
+{% endblock %}
