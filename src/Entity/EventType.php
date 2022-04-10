@@ -24,9 +24,13 @@ class EventType
     #[ORM\OneToMany(mappedBy: 'eventType', targetEntity: Event::class)]
     private $Events;
 
+    #[ORM\OneToMany(mappedBy: 'EventType', targetEntity: Event::class)]
+    private $events;
+
     public function __construct()
     {
         $this->Events = new ArrayCollection();
+        $this->events = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,5 +90,12 @@ class EventType
         }
 
         return $this;
+    }
+
+
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

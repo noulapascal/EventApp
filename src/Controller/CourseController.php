@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Course;
-use App\Form\Course1Type;
+use App\Form\CourseType;
 use App\Repository\CourseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,7 @@ class CourseController extends AbstractController
     public function new(Request $request, CourseRepository $courseRepository): Response
     {
         $course = new Course();
-        $form = $this->createForm(Course1Type::class, $course);
+        $form = $this->createForm(CourseType::class, $course);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -50,7 +50,7 @@ class CourseController extends AbstractController
     #[Route('/{id}</d+>/edit', name: 'app_course_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Course $course, CourseRepository $courseRepository): Response
     {
-        $form = $this->createForm(Course1Type::class, $course);
+        $form = $this->createForm(CourseType::class, $course);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Command index
+{% endblock %}
+
+{% block body %}
+	<h1>Command index</h1>
+	{% include 'tab.html.twig' %}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>{% trans %}Id{% endtrans %}
+				</th>
+				<th>{% trans %}Starter Dish{% endtrans %}</th>
+				<th>{% trans %}Main course{% endtrans %}
+				</th>
+				<th>{% trans %}Dessert{% endtrans %}</th>
+				<th>{% trans %}Table{% endtrans %}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for command in commands %}
+				<tr>
+					<td>
+						{{ command.id }}
+					</td>
+					<td>
+						<a class="dropdown-item" href="{{ path('app_course_show',{id:command.starterDish.id}) }}">
+							{{ command.StarterDish }}
+						</a>
+					</td>
+					<td>
+						<a class="dropdown-item" href="{{ path('app_course_show',{id:command.mainCourse.id}) }}">
+							{{ command.mainCourse }}
+						</a>
+					</td>
+					<td>
+						<a class="dropdown-item" href="{{ path('app_course_show',{id:command.dessert.id}) }}">
+							{{ command.dessert }}
+						</a>
+					</td>
+					<td>
+						<a href="{{ path('app_command_show', {'id': command.id}) }}">{% trans %}show{% endtrans %}</a>
+						<a href="{{ path('app_command_edit', {'id': command.id}) }}">{% trans %}edit{% endtrans %}</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="2">{% trans %}no records found{% endtrans %}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_command_new') }}">{% trans %}Create new{% endtrans %}</a>
+{% endblock %}

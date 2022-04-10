@@ -33,6 +33,10 @@ class Event
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Course::class)]
     private $courses;
 
+    #[ORM\ManyToOne(targetEntity: EventType::class, inversedBy: 'events')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $EventType;
+
     public function __construct()
     {
         $this->courses = new ArrayCollection();
@@ -131,5 +135,12 @@ class Event
         }
 
         return $this;
+    }
+
+
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

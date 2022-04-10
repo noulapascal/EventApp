@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\CourseType;
 use App\Entity\Course;
+use App\Entity\Event;
 use App\Entity\EventType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -55,6 +56,7 @@ class DashboardController extends AbstractDashboardController
         +yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'home');
         +yield MenuItem::linkToCrud('CourseType', 'fas fa-map-marker-alt', CourseType::class);
         +yield MenuItem::linkToCrud('EventType', 'fas fa-comments', EventType::class);
-        +yield MenuItem::linkToCrud('Course', 'fas fa-bowl-coffee', Course::class);
+        +yield MenuItem::linkToCrud('Course', 'fas fa-fork', Course::class);
+        +yield MenuItem::linkToCrud('Event', 'fas fa-building', Event::class);
     }
 }

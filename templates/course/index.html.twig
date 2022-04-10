@@ -8,18 +8,21 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
+                <th> {% trans %}Id{% endtrans %}</th>
+                <th> {% trans %}Name{% endtrans %}</th>
+                <th> {% trans %}Description{% endtrans %}</th>
+                <th> {% trans %}Availability{% endtrans %}</th>
+                <th> {% trans %} Type{% endtrans %}</th>
                 <th>{% trans %}actions{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
         {% for course in courses %}
             <tr>
-                <td>{{ course.id }}</td>
-                <td>{{ course.name }}</td>
-                <td>{{ course.description }}</td>
+                <td> {{ course.id }}  </td>
+                <td> {{ course.name }}  </td>
+                <td> {{ course.description }}  </td>
+                <td> {{ course.availability ? 'Yes' : 'No' }}  </td>
                 <td>
                     <a href="{{ path('app_course_show', {'id': course.id}) }}">{% trans %}show{% endtrans %}</a>
                     <a href="{{ path('app_course_edit', {'id': course.id}) }}">{% trans %}edit{% endtrans %}</a>
@@ -27,7 +30,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">{% trans %}no records found{% endtrans %}</td>
+                <td colspan="5">{% trans %}no records found{% endtrans %}</td>
             </tr>
         {% endfor %}
         </tbody>

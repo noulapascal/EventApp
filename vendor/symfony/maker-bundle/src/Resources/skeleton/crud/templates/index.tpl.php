@@ -7,7 +7,7 @@
         <thead>
             <tr>
 <?php foreach ($entity_fields as $field): ?>
-                <th><?= ucfirst($field['fieldName']) ?></th>
+ <th>{% trans %}<?= ucfirst($field['fieldName']) ?>{% endtrans %} </th>
 <?php endforeach; ?>
                 <th>{% trans %}actions{% endtrans %}</th>
             </tr>
@@ -16,7 +16,7 @@
         {% for <?= $entity_twig_var_singular ?> in <?= $entity_twig_var_plural ?> %}
             <tr>
 <?php foreach ($entity_fields as $field): ?>
-                <td>{{ <?= $helper->getEntityFieldPrintCode($entity_twig_var_singular, $field) ?> }}</td>
+                <td> {{ <?= $helper->getEntityFieldPrintCode($entity_twig_var_singular, $field) ?> }}</td>
 <?php endforeach; ?>
                 <td>
                     <a href="{{ path('<?= $route_name ?>_show', {'<?= $entity_identifier ?>': <?= $entity_twig_var_singular ?>.<?= $entity_identifier ?>}) }}">{% trans %}show{% endtrans %}</a>

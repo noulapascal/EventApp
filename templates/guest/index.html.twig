@@ -8,20 +8,20 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Table_number</th>
+ <th>{% trans %}Id{% endtrans %} </th>
+ <th>{% trans %}Name{% endtrans %} </th>
+ <th>{% trans %}Description{% endtrans %} </th>
+ <th>{% trans %}Table_number{% endtrans %} </th>
                 <th>{% trans %}actions{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
         {% for guest in guests %}
             <tr>
-                <td>{{ guest.id }}</td>
-                <td>{{ guest.name }}</td>
-                <td>{{ guest.description }}</td>
-                <td>{{ guest.tableNumber }}</td>
+                <td> {{ guest.id }}</td>
+                <td> {{ guest.name }}</td>
+                <td> {{ guest.description }}</td>
+                <td> {{ guest.tableNumber }}</td>
                 <td>
                     <a href="{{ path('app_guest_show', {'id': guest.id}) }}">{% trans %}show{% endtrans %}</a>
                     <a href="{{ path('app_guest_edit', {'id': guest.id}) }}">{% trans %}edit{% endtrans %}</a>

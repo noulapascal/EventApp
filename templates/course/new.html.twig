@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+ {% extends 'base.html.twig' %}
 
 {% block title %}New Course{% endblock %}
 
 {% block body %}
-    <h1>Create new Course</h1>
+    <h1>{% trans %}Create new <{% endtrans %}?= $entity_class_name ?></h1>
 
     {{ include('course/_form.html.twig') }}
 
-    <a href="{{ path('app_course_index') }}">back to list</a>
+    <a href="{{ path('app_course_index') }}">{% trans %}back to list {% endtrans %}</a>
 {% endblock %}
