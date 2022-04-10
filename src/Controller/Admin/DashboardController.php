@@ -6,6 +6,7 @@ use App\Entity\CourseType;
 use App\Entity\Course;
 use App\Entity\Event;
 use App\Entity\EventType;
+use App\Entity\Guest;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -56,7 +57,8 @@ class DashboardController extends AbstractDashboardController
         +yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'home');
         +yield MenuItem::linkToCrud('CourseType', 'fas fa-map-marker-alt', CourseType::class);
         +yield MenuItem::linkToCrud('EventType', 'fas fa-comments', EventType::class);
-        +yield MenuItem::linkToCrud('Course', 'fas fa-fork', Course::class);
+        +yield MenuItem::linkToCrud('Course', 'fas fa-foodexit', Course::class);
+        +yield MenuItem::linkToCrud('Guest', 'fas fa-user', Guest::class);
         +yield MenuItem::linkToCrud('Event', 'fas fa-building', Event::class);
     }
 }
